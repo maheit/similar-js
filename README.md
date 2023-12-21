@@ -13,8 +13,8 @@ A rich, modern and optimistic Javascript library to different datatype deep comp
 OR
 
 ``` 
-import similar from "similar-js" 
-similar.isSimilar(a, b)
+import similarJs from "similar-js" 
+similarJs.isSimilar(a, b)
 
 ```
 
