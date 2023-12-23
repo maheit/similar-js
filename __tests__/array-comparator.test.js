@@ -1,4 +1,4 @@
-import { isSimilar } from "../src/index.js";
+import { isSimilar } from "../dist/index.js";
 import { expect, jest, test } from "@jest/globals";
 
 describe("Array Tests", function () {
