@@ -1,7 +1,8 @@
 # similar-js
 
-[NPM registry](https://www.npmjs.com/package/similar-js)
 A rich, modern and optimistic Javascript library to different datatype deep comparison, validation and model generation
+
+[NPM registry](https://www.npmjs.com/package/similar-js)
 
 
 **Install Package from npm register**
