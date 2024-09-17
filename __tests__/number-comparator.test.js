@@ -1,4 +1,4 @@
-import { isSimilar } from "../src/index.js";
+import { isSimilar } from "../dist/bundle.min.js";
 import { expect, jest, test } from "@jest/globals";
 
 describe("Number Tests", function () {

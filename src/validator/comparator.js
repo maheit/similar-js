@@ -1,3 +1,56 @@
+export const similarJS = (
+  a,
+  b,
+  {
+    exactObject = true,
+    exactArray = true,
+    swapCompObject = true,
+    swapCompArray = true,
+  } = {
+      exactObject: true,
+      exactArray: true,
+      swapCompObject: true,
+      swapCompArray: true,
+    }
+) => {
+  const metadata = {
+    exactObject,
+    exactArray,
+    swapCompObject,
+    swapCompArray,
+  };
+  let isConditionChecked = true;
+  if (a && b) {
+    if (isNumber(a) && isNumber(b)) {
+      if (a !== b) {
+        return false;
+      }
+    } else if (isString(a) && isString(b)) {
+      if (a !== b) {
+        return false;
+      }
+    } else if (Array.isArray(a) && Array.isArray(b)) {
+      if (!isArrayDeepEqual(a, b, metadata)) {
+        return false;
+      }
+    } else if (isObject(a) && isObject(b)) {
+      if (!isObjectDeepEqual(a, b, metadata)) {
+        return false;
+      }
+    } else {
+      isConditionChecked = false;
+    }
+  } else {
+    isConditionChecked = false;
+  }
+  if (!isConditionChecked && a !== b) {
+    return false;
+  }
+  return true;
+};
+
+
+
 const isAlNum = (value) => {
   const dataType = typeof value;
   if (
@@ -44,11 +97,11 @@ const isObjectDeepEqual = (
     swapCompObject = true,
     swapCompArray = true,
   } = {
-    exactObject: true,
-    exactArray: true,
-    swapCompObject: true,
-    swapCompArray: true,
-  }
+      exactObject: true,
+      exactArray: true,
+      swapCompObject: true,
+      swapCompArray: true,
+    }
 ) => {
   a = { ...a };
   b = { ...b };
@@ -77,7 +130,7 @@ const isObjectDeepEqual = (
   }
   for (let i = 0; i < properties.length; i++) {
     let propName = properties[i];
-    if (!isSimilar(a[propName], b[propName], metadata)) {
+    if (!similarJS(a[propName], b[propName], metadata)) {
       return false;
     }
   }
@@ -87,56 +140,6 @@ const isObjectDeepEqual = (
   return true;
 };
 
-export const isSimilar = (
-  a,
-  b,
-  {
-    exactObject = true,
-    exactArray = true,
-    swapCompObject = true,
-    swapCompArray = true,
-  } = {
-    exactObject: true,
-    exactArray: true,
-    swapCompObject: true,
-    swapCompArray: true,
-  }
-) => {
-  const metadata = {
-    exactObject,
-    exactArray,
-    swapCompObject,
-    swapCompArray,
-  };
-  let isConditionChecked = true;
-  if (a && b) {
-    if (isNumber(a) && isNumber(b)) {
-      if (a !== b) {
-        return false;
-      }
-    } else if (isString(a) && isString(b)) {
-      if (a !== b) {
-        return false;
-      }
-    } else if (Array.isArray(a) && Array.isArray(b)) {
-      if (!isArrayDeepEqual(a, b, metadata)) {
-        return false;
-      }
-    } else if (isObject(a) && isObject(b)) {
-      if (!isObjectDeepEqual(a, b, metadata)) {
-        return false;
-      }
-    } else {
-      isConditionChecked = false;
-    }
-  } else {
-    isConditionChecked = false;
-  }
-  if (!isConditionChecked && a !== b) {
-    return false;
-  }
-  return true;
-};
 
 const isArrayDeepEqual = (
   firstArray,
@@ -147,11 +150,11 @@ const isArrayDeepEqual = (
     swapCompObject = true,
     swapCompArray = true,
   } = {
-    exactObject: true,
-    exactArray: true,
-    swapCompObject: true,
-    swapCompArray: true,
-  }
+      exactObject: true,
+      exactArray: true,
+      swapCompObject: true,
+      swapCompArray: true,
+    }
 ) => {
   let a = [...firstArray];
   let b = [...secondArray];
@@ -178,7 +181,7 @@ const isArrayDeepEqual = (
     let bMatchedIndex = -1;
     // return secondArray.includes(value);
     const matched = maxItems.find((bValue, index) => {
-      if (isSimilar(aValue, bValue, metadata)) {
+      if (similarJS(aValue, bValue, metadata)) {
         bMatchedIndex = index;
         return true;
       }
@@ -193,3 +196,5 @@ const isArrayDeepEqual = (
 
   return result;
 };
+
+export default similarJS;
