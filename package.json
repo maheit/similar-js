@@ -1,6 +1,6 @@
 {
   "name": "similar-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A rich and optimistic Javascript library to JS and JSON datatype comparison, validation and model generation",
   "type": "module",
   "main": "dist/bundle.min.js",
@@ -53,7 +53,5 @@
     "prettier": "2.8.8",
     "tsc": "^2.0.4"
   },
-  "dependencies": {
-    "delete": "^1.1.0"
-  }
+  "dependencies": {}
 }
