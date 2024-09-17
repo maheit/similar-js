@@ -1,3 +1,5 @@
-import { isSimilar } from "./validator/comparator.js";
+import isSimilar from "./validator/comparator.js";
 
-// export { isSimilar };
+export { isSimilar };
+
+export default { isSimilar };
