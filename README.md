@@ -2,6 +2,8 @@
 
 A rich, modern and optimistic Javascript library to different datatype deep comparison, validation and model generation
 
+[NPM registry](https://www.npmjs.com/package/similar-js)
+
 
 **Install Package from npm register**
 ``` npm install -S similar-js ```
@@ -79,7 +81,7 @@ console.log(isSimilar({ name: "mahe", school: "ICSA", "class": "10" }, { name: "
 ===
 
 
-# For deep complex object comparision which includes object of objects, array of objects, araya of array, and so on.
+# For deep complex object comparision which includes object of objects, array of objects, array of arrays, and so on.
 
 ```
 
