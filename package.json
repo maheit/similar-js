@@ -1,15 +1,19 @@
 {
   "name": "similar-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A rich and optimistic Javascript library to JS and JSON datatype comparison, validation and model generation",
   "type": "module",
-  "main": "dist/bundle.min.js",
+  "main": "./dist/bundle.cjs",
+  "module": "./dist/bundle.min.js",
+  "browser": "./dist/SimilarJS.iife.js",
   "exports": {
-    ".": {
-      "import": "./dist/bundle.min.js",
-      "require": "./dist/bundle.min.js"
-    }
+    "import": "./dist/bundle.min.js",
+    "require": "./dist/bundle.cjs"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "test": "jest",
     "format": "prettier --config ./.prettierrc.json --write src/**",
@@ -43,7 +47,6 @@
   "homepage": "https://github.com/maheit/similar-js#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.22.5",
-    "esbuild": "^0.23.1",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^3.1.0",
@@ -51,7 +54,8 @@
     "gulp-uglify": "^3.0.2",
     "jest": "^29.5.0",
     "prettier": "2.8.8",
-    "tsc": "^2.0.4"
+    "tsc": "^2.0.4",
+    "esbuild": "^0.24.0"
   },
   "dependencies": {}
 }

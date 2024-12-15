@@ -1,4 +1,9 @@
-import { isSimilar } from "similar-js"
+// import { isSimilar } from "similar-js"
+
+// "type": "module",
+// "type": "commonjs"
+
+const { isSimilar } = require("similar-js")
 
 const previousUserDetails = [
     {
